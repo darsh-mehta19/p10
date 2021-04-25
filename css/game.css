@@ -1,0 +1,613 @@
+/*-------------------------------------------------------------------------------------------------
+General
+-------------------------------------------------------------------------------------------------*/
+
+body {
+  background-color: #98AFC7;
+  background: url('/images/goldback.jpg') no-repeat;
+  font-family: Arial, Times, sans-serif;
+  font-size: 14pt;
+  text-align: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+}
+
+#wrapper {
+  width:900px;
+  height:700px;
+  position:fixed;
+  left:50%;
+  top:50%;
+  margin:-410px 0 0 -450px;
+  z-index:0;
+}
+
+
+h1 {
+    font-family: 'Purple Purse', cursive;
+    font-weight:bold;
+    margin:0 -13px 0 0;
+    font-style:italic;
+    font-variant:small-caps;
+    text-decoration: none;
+    word-spacing: normal;
+    text-align: center;
+    letter-spacing: 0;
+    font-size: 45pt;
+    color: #B80000 ;
+    text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+h2 {
+    font-family: 'Purple Purse', cursive;
+    font-weight:bold;
+    margin:0 -13px 0 0;
+    text-decoration: none;
+    word-spacing: normal;
+    text-align: center;
+    letter-spacing: 0;
+    font-size: 20pt;
+    color: #B80000 ;
+   
+}
+
+/*-------------------------------------------------------------------------------------------------
+Game general areas and lock screens to block users
+-------------------------------------------------------------------------------------------------*/
+#gameArea {
+width:900px;
+height:700px;
+position:absolute;
+left:50%;
+top:50%;
+margin:-290px 0 0 -450px;
+padding: 15px;
+border:0px;
+background:rgba(255,255,255, 0.8);
+background-origin:border-box;
+-moz-box-shadow: 30px 30px 95px #000000;
+-webkit-box-shadow: 30px 30px 95px #000000;
+box-shadow: 20px 20px 85px #000000;
+z-index:1;
+}
+
+#screen {
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  opacity:0;
+  z-index:999;
+}
+
+#playgameoverlay {
+  position:fixed;
+  width:110%;
+  height:110%;
+  margin:-40px 0px 0px -40px;
+  opacity:0.7;
+  background-color:white;
+  z-index:500;
+  text-align:center;
+}
+
+#playerFieldLock {
+  width:80%;
+  height:320px;
+  float:left;
+  position:relative;
+  z-index:500;
+}
+
+
+#lockScreen {
+  width: 220px;
+  height: 190px;
+  float:left;
+  position:absolute;
+  z-index:1000;
+  display:none;
+}
+
+#computerLockScreen {
+  width:100%;
+  height:50%;
+  position:absolute;
+  z-index:4000;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Buttons
+-------------------------------------------------------------------------------------------------*/
+#playbuttons {
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:1000;
+  display: block;
+}
+
+#playgame {
+
+  position:absolute;
+  width:600px;
+  height:400px;
+  left:50%;
+  top:50%;
+  margin:-220px 0 0 -300px;
+  padding: 0;
+  -webkit-box-shadow: 10px 10px 33px 9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 33px 9px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 33px 9px rgba(0,0,0,0.75);
+  background: #a64040;
+  border-radius: 16px 16px 16px 16px;
+  -moz-border-radius: 16px 16px 16px 16px;
+  -webkit-border-radius: 16px 16px 16px 16px;
+  z-index:9999;
+  text-align:center;
+  font-family: 'Purple Purse', cursive;
+  font-weight:bold;
+  font-style:italic;
+  font-variant:small-caps;
+  text-decoration: none;
+  word-spacing: normal;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 30pt;
+  color: #B80000 ;
+    
+}
+
+#playbutton, #rulesbutton, #nextphasebutton, #readrules, .prepareSubmitPhase, 
+#submitphasebutton, #cancelphasebutton, #resetphasebutton  {
+  display:block;
+  float:left;
+  -moz-box-shadow: 3px 4px 0px 0px #8a2a21;
+  -webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
+  background:-moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+  background:-webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+  background:-o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+  background:-ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+  background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
+  background-color:#c62d1f;
+  -moz-border-radius:18px;
+  -webkit-border-radius:18px;
+  border-radius:18px;
+  border:1px solid #d02718;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:arial;
+  font-size:35px;
+  padding:7px 25px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #810e05;
+  position:fixed;
+  top:50%;
+  left:35%;
+  z-index:10000;
+
+}
+
+#readrules {
+
+  position:absolute;
+  top:2%;
+  left:88%;
+  float:right;
+  font-size:15px;
+  display:none;
+  color:#C0C0C0;
+
+
+}
+
+#rulesbutton {
+  left:56%;
+  top:45%;
+}
+
+#playbutton {
+  left:25%;
+  top:45%;
+}
+
+#nextphasebutton {
+
+  position:relative;
+  font-size:17px;
+  z-index:10001;
+  top:0;
+  left:38%;
+  float:none;
+  text-align:center;
+
+}
+
+#playbutton:hover, #rulesbutton:hover, #nextphasebutton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
+  background:-moz-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+  background:-webkit-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+  background:-o-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+  background:-ms-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+  background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
+  background-color:#f24437;
+}
+
+.prepareSubmitPhase, #submitphasebutton, #cancelphasebutton, #resetphasebutton {
+  float:right;
+  position:absolute;
+  right:10px;
+  margin-right:10px;
+  left:78%;
+  top:70%;
+  display:none;
+  font-size:10px;
+}
+
+#discardbutton {
+  float:left;
+  display:none;
+}
+
+
+#submitphasebutton {
+  top:0%;
+  right:5%;
+}
+
+#cancelphasebutton {
+  top:60%;
+  right:5%;
+}
+
+#resetphasebutton {
+  right:5%;
+  top: 30%;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+Deck areas (deck to draw from, discard area, etc.)
+-------------------------------------------------------------------------------------------------*/
+
+#deckPiles {
+  width:200px;
+  height:150px;
+  right:10px;
+  bottom:20px;
+  position:absolute;
+
+}
+
+#drawDeck {
+  width: 93px;
+  height: 130px;
+  background: url('/images/cardbackstack.png');
+  background-size:93px 130px;
+  float:left;
+  cursor:pointer;
+  right:100px;
+  bottom:15px;
+  position:absolute;
+  display:none;
+  z-index:1;
+}
+
+#discardDeck {
+  width: 85px;
+  height: 119px;
+  border-width:1px;
+  float:left;
+  position:absolute;
+  right:110px;
+  right:10px;
+  bottom:15px;
+  bottom:15px;
+  z-index:1;
+}
+
+#discardDeck.ui-state-hover, #c1p1field.ui-state-hover{
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  padding:7px;
+
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+Phase 10 Rules Pop up
+-------------------------------------------------------------------------------------------------*/
+.overlay{
+    background: black;
+    opacity: .5;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:1000;
+    display:none;
+}
+.box{
+    position:fixed;
+    top:-2000%;
+    left:20%;
+    right:20%;
+    background-color:#fff;
+    color:#7F7F7F;
+    padding:20px;
+    border:2px solid #ccc;
+    -moz-border-radius: 20px;
+    -webkit-border-radius:20px;
+    -khtml-border-radius:20px;
+    -moz-box-shadow: 0 1px 5px #333;
+    -webkit-box-shadow: 0 1px 5px #333;
+    z-index:1001;
+}
+a.boxclose{
+    float:right;
+    margin-top:-30px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;       
+}
+
+.boxclose:before {
+    content: "X";
+
+}
+
+.box h1{
+    border-bottom: 1px dashed #7F7F7F;
+    margin:-20px -20px 0px -20px;
+    padding:10px;
+    background-color:#FFEFEF;
+    color:#EF7777;
+    -moz-border-radius:20px 20px 0px 0px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -khtml-border-top-left-radius: 20px;
+    -khtml-border-top-right-radius: 20px;
+}
+
+/*-------------------------------------------------------------------------------------------------
+"You did it!" Phase Message
+-------------------------------------------------------------------------------------------------*/
+#roundCompleteMessage {
+  width:600px;
+  height:500px;
+  left:25%;
+  right:25%;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Player Playing Field Areas
+-------------------------------------------------------------------------------------------------*/
+
+.playingField {
+  width:100%;
+  height:300px;
+  float:right;
+  position:relative;
+  z-index:2;
+}
+
+#computer1DivId {
+
+  width:300px;
+  height:125px;
+  z-index:2;
+  position:relative;
+ 
+}
+
+#computer3DivId {
+
+  width:300px;
+  height:125px;
+  z-index:2;
+  position:relative;
+}
+
+#computer2DivId {
+
+  width:300px;
+  height:125px;
+  z-index:2;
+  position:relative;
+}
+
+#computer1DivId div, #computer2DivId div, #computer3DivId div {
+
+  margin-right:-64px;
+}
+
+#playerDivId {
+ 
+  width:700px;
+  height:130px;
+  z-index:2;
+  left:10px;
+  bottom:30px;
+  position:absolute;
+
+}
+
+#playerDivId div {
+  margin-right:-25px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+Playing cards
+-------------------------------------------------------------------------------------------------*/
+
+.card {
+  background-image: url('/images/cardback.png');
+  background-size:85px 119px;
+  float:left;
+  position:relative;
+  top:0px;
+  z-index:30;
+  border:1px;
+}
+
+
+.cardface {
+  cursor:pointer;
+  float:left;
+}
+
+
+.card.ui-draggable-dragging { 
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+
+}
+
+/*-------------------------------------------------------------------------------------------------
+Phase Related such as Titles and Phase Fields
+-------------------------------------------------------------------------------------------------*/
+
+.phaseTitles {
+  display:none;
+  position:absolute;
+  text-align:left;
+  padding-left:40px;
+  line-height:130px;
+  font-family: 'Purple Purse', cursive;
+    font-weight:bold;
+    margin:0 -13px 0 0;
+    text-decoration: none;
+    word-spacing: normal;
+    text-align: center;
+    letter-spacing: 0;
+    font-size: 20pt;
+    color: orange ;
+}
+ 
+#phaseField {
+  width:100%;
+  position:absolute;
+  bottom: 160px;
+  display:none;
+  height:150px;
+  z-index:1;
+
+}
+
+#phaseField1 {
+  width:43%;
+  height: 150px;
+  z-index:1;
+  float:left;
+  position:relative;
+  padding-left:10px;
+  padding-top:10px;
+  display:none;
+}
+
+#phaseField2 {
+  width:48%;
+  height:150px;
+  z-index:1;
+  float:left;
+  position:relative;
+  display:none;
+  padding-top:10px;
+}
+
+#phaseField1 div, #phaseField2 div {
+  margin-right:-60px;
+}
+
+
+.phaseFieldDiv {
+  float: left;
+  width: 150px;
+  height: 213px;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 0 0 10px;
+  background: #fff;
+  border-style: dashed;
+  z-index:3;
+}
+
+.phaseMsg {
+  font-family: Arial, Times, sans-serif;
+  font-size: 14pt;
+  float:left;
+}
+
+#computer1PhaseField {
+
+  width:290px;
+  height:245px;
+  z-index:2;
+  position:relative;
+  float:left;
+
+}
+
+#computer3PhaseField {
+ 
+  width:290px;
+  height:245px;
+  z-index:2;
+  position:relative;
+  float:left;
+
+}
+
+#computer2PhaseField {
+  width:290px;
+  height:245px;
+  z-index:2;
+  position:relative;
+  float:left;
+
+}
+
+#c1p1field, #c1p2field, #c2p1field, #c2p2field, #c3p1field, #c3p2field {
+  width:100%;
+  height:50%;
+  z-index:50;
+  margin-left:10px;
+
+}
+
+#c1p1field div, #c1p2field div, #c2p1field div, #c2p2field div, #c3p1field div, #c3p2field div {
+  margin-right:-60px;  
+}
+
+
